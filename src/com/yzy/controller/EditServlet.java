@@ -43,14 +43,18 @@ public class EditServlet extends HttpServlet {
         Part part = req.getPart("img");
         String imgUrl = "";
         String suffix = "";
+        String targetUrl = " ";
         if (part != null) {
             String full = part.getSubmittedFileName();
             suffix = part.getSubmittedFileName().substring(full.lastIndexOf("."));
         } else {
             //TODO 默认头像
         }
+
+        //TODO 无法实现上传后立刻浏览图片，需要重启
         imgUrl = "E:\\projects\\webdemo2\\web\\photos\\" + username + suffix;
         if (part != null) {
+            part.write(targetUrl);
             part.write(imgUrl);
         }
 

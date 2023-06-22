@@ -62,6 +62,21 @@
     input[type="submit"]:hover {
         background-color: #45a049;
     }
+    input[type="submit"] {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        border: none;
+        background-color: #4caf50;
+        color: #fff;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 3px;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
 </style>
 <body>
 <div class="container">
@@ -106,7 +121,7 @@
     let button = document.getElementById("submit");
     button.onclick = function () {
         let photo = document.getElementById("img");
-        if (photo.length == 0) {
+        if (photo.length === 0) {
             photo.setAttribute('disabled', 'disabled')
         }
         let form = document.getElementById("form");

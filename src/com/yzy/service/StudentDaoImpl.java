@@ -142,13 +142,12 @@ public class StudentDaoImpl implements StudentDao {
     }
 
     @Override
-    public List<Student> selectByParam(String param) {
+    public List<Student> selectByID(String param) {
         List<Student> list = new ArrayList<>();
         try {
-            sql = "select * from student where id = ? or username = ?";
+            sql = "select * from student where id = ?";
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, Integer.parseInt(param));
-            preparedStatement.setString(2, param);
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 Student student = new Student();
@@ -164,4 +163,29 @@ public class StudentDaoImpl implements StudentDao {
         }
         return list;
     }
+
+    @Override
+    public List<Student> selectByName(String param) {
+        List<Student> list = new ArrayList<>();
+        try {
+            sql = "select * from student where username = ?";
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, param);
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                Student student = new Student();
+                student.setId(Integer.parseInt((resultSet.getString("id"))));
+                student.setUsername(resultSet.getString("username"));
+                student.setPassword(resultSet.getString("password"));
+                student.setGender(resultSet.getString("gender"));
+                student.setImg(resultSet.getString("img"));
+                list.add(student);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return list;
+    }
+
+
 }

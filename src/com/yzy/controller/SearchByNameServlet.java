@@ -9,10 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.swing.*;
-import javax.xml.ws.spi.http.HttpExchange;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,8 +18,8 @@ import java.util.List;
  * @description TODO
  * @date 2023/6/21 23:26
  */
-@WebServlet(value = "/searchServlet")
-public class SearchServlet extends HttpServlet {
+@WebServlet(value = "/searchByName")
+public class SearchByNameServlet extends HttpServlet {
 
     StudentDao studentDao = new StudentDaoImpl();
 
@@ -35,7 +32,7 @@ public class SearchServlet extends HttpServlet {
             return;
         }
 
-        List<Student> students = studentDao.selectByParam(param);
+        List<Student> students = studentDao.selectByName(param);
 
         req.setAttribute("students", students);
         req.getRequestDispatcher("/main.jsp").forward(req, resp);

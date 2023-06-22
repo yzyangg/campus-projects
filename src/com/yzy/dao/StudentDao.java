@@ -24,5 +24,8 @@ public interface StudentDao {
 
     List<Student> selectAll();
 
-    List<Student> selectByParam(String param);
+    List<Student> selectByID(String param);
+
+
+    List<Student> selectByName(String param);
 }
