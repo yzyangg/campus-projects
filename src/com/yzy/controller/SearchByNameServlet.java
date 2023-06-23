@@ -26,7 +26,7 @@ public class SearchByNameServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String param = req.getParameter("param");
-        if (param == " " || param.isEmpty()) {
+        if (param.equals(" ") || param.isEmpty()) {
             req.setAttribute("students", studentDao.selectAll());
             req.getRequestDispatcher("/main.jsp").forward(req, resp);
             return;
