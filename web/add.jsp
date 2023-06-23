@@ -15,7 +15,7 @@
         font-family: Arial, sans-serif;
         margin: 0;
         padding: 0;
-        /*background-color: #f2f2f2;*/
+        background-color: #f2f2f2;
     }
 
     .container {
@@ -37,14 +37,21 @@
 
     label {
         font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
     }
 
     input[type="text"],
-    input[type="password"] {
+    input[type="password"],
+    input[type="file"] {
         width: 100%;
-        padding: 5px;
+        padding: 8px;
         border-radius: 3px;
         border: 1px solid #ccc;
+    }
+
+    input[type="radio"] {
+        margin-right: 5px;
     }
 
     input[type="submit"] {
@@ -67,33 +74,31 @@
 <div class="container">
 
     <form action="/addServlet" method="POST" enctype="multipart/form-data">
+        <h2>Student Information</h2>
+
         <div class="form-group">
-            <label>学号</label>
+            <label for="id">学号</label>
             <input type="text" value="${student.id}" name="id" id="id">
         </div>
 
         <div class="form-group">
-            <label>姓名</label>
+            <label for="username">姓名</label>
             <input type="text" value="${student.username}" name="username" id="username">
-
         </div>
 
         <div class="form-group">
             <label>性别</label>
-            <input type="radio" name="gender" value="男" id="man"> 男
-            <input type="radio" name="gender" value="女" id="woman"> 女
-
+            <input type="radio" name="gender" value="男" id="man"> <label for="man">男</label>
+            <input type="radio" name="gender" value="女" id="woman"> <label for="woman">女</label>
         </div>
 
         <div class="form-group">
             <label for="img">头像</label>
             <input type="file" name="img" id="img">
         </div>
+
         <input type="submit" value="提交">
     </form>
 </div>
-<script>
-
-</script>
 </body>
 </html>

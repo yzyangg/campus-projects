@@ -13,6 +13,13 @@
     <title>Title</title>
 </head>
 <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f2f2f2;
+    }
+
     .container {
         width: 50%;
         padding: 20px;
@@ -22,7 +29,7 @@
         background-color: #cccccc;
         text-align: center;
         border-radius: 5px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
 
     img {
@@ -31,24 +38,45 @@
     }
 
     .table {
-        margin: 100px auto;
+        margin: 20px auto;
+        width: 100%;
+        border-collapse: collapse;
     }
 
-    .add {
-        text-decoration: none;
-        border-radius: 3px;
+    th,
+    td {
+        padding: 10px;
+        text-align: center;
     }
 
+    th {
+        background-color: #dddddd;
+    }
+
+    .add,
     .search {
-        text-decoration: none;
+        display: inline-block;
+        margin-top: 10px;
+        margin-right: 5px;
+        padding: 8px 12px;
+        border: none;
         border-radius: 3px;
+        background-color: #4caf50;
+        color: #fff;
+        font-weight: bold;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .add:hover,
+    .search:hover {
+        background-color: #45a049;
     }
 
     a {
         text-decoration: none;
         color: black;
     }
-
 </style>
 
 <script>
@@ -69,12 +97,13 @@
 
 <body>
 <div class="container">
-
     <input id="search" type="text" placeholder="">
-    <button onclick="searchByName()" class="searchByName">Name查询</button>
-    <button onclick="searchByID()" class="searchById">ID查询</button>
+    <button onclick="searchByName()" class="search">Name查询</button>
+    <button onclick="searchByID()" class="search">ID查询</button>
     <button onclick="add()" class="add">添加</button>
+
     <table class="table">
+        <thead>
         <tr>
             <th>学号</th>
             <th>姓名</th>
@@ -82,8 +111,8 @@
             <th>头像</th>
             <th colspan="2">操作</th>
         </tr>
+        </thead>
         <tbody>
-
         <c:forEach var="student" items="${students}">
             <tr>
                 <td>${student.id}</td>
@@ -96,7 +125,6 @@
                 </td>
             </tr>
         </c:forEach>
-
         </tbody>
     </table>
 </div>
