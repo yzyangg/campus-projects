@@ -29,8 +29,15 @@ public class LoginServlet extends HttpServlet {
         String username = req.getParameter("username");
         String password = req.getParameter("password");
 
-        req.setAttribute("students", studentDao.selectAll());
-        req.getRequestDispatcher("/main.jsp").forward(req, resp);
+        if (username.equals("admin") && password.equals("123456")) {
+            req.getRequestDispatcher("/main.jsp").forward(req, resp);
+            return;
+        } else {
+            req.setAttribute("msg", "用户名或密码错误");
+            req.getRequestDispatcher("/index.jsp").forward(req, resp);
+            return;
+        }
+
 
         //TODO 校验
     }

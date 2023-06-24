@@ -30,7 +30,7 @@ public class DeleteServlet extends HttpServlet {
         String id = req.getParameter("id");
         studentDao.delete(Integer.parseInt(id));
 
-        req.getRequestDispatcher("/TurnToMain").forward(req, resp);
+        req.getRequestDispatcher("/main.jsp").forward(req, resp);
         System.out.println(id);
 
         //TODO 校验

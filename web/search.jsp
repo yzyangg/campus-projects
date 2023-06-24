@@ -108,11 +108,6 @@
     <button onclick="searchByName()" class="search">Name查询</button>
     <button onclick="searchByID()" class="search">ID查询</button>
     <button onclick="add()" class="add">添加</button>
-    <% {
-        StudentDaoImpl studentDao = new StudentDaoImpl();
-        List<Student> students = studentDao.selectAll();
-        request.setAttribute("students", students);
-    } %>
 
     <table class="table">
         <thead>

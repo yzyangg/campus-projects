@@ -8,14 +8,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Edit</title>
 </head>
 <style>
     body {
         font-family: Arial, sans-serif;
         margin: 0;
         padding: 0;
-        background-color: #f2f2f2;
+        background-image: linear-gradient(135deg, #2AFADF 10%, #4C83FF 100%);
     }
 
     .container {
@@ -48,6 +48,7 @@
         padding: 8px;
         border-radius: 3px;
         border: 1px solid #ccc;
+        /*background-image: linear-gradient(135deg, #2AFADF 10%, #4C83FF 100%);*/
     }
 
     input[type="radio"] {
@@ -64,17 +65,34 @@
         font-weight: bold;
         cursor: pointer;
         border-radius: 3px;
+        background-image: linear-gradient(135deg, #2AFADF 10%, #4C83FF 100%);
     }
 
     button:hover {
         background-color: #45a049;
+    }
+
+    .form-group div {
+        display: flex;
+        align-items: center;
+    }
+
+    input[type="radio"] {
+        margin-right: 5px;
+        margin-bottom: 0;
+    }
+
+    img {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 10px;
     }
 </style>
 <body>
 <div class="container">
 
     <form action="/editServlet" method="POST" enctype="multipart/form-data" id="form">
-        <h2>Student Information</h2>
+        <h2>Edit</h2>
 
         <div class="form-group">
             <label for="id">学号</label>
@@ -88,11 +106,19 @@
 
         <div class="form-group">
             <label>性别</label>
-            <input type="radio" name="gender" value="男" id="man"> <label for="man">男</label>
-            <input type="radio" name="gender" value="女" id="woman"> <label for="woman">女</label>
+            <div>
+                <label for="man">
+                    <input type="radio" name="gender" value="男" id="man"> 男
+                </label>
+                <label for="woman">
+                    <input type="radio" name="gender" value="女" id="woman"> 女
+                </label>
+            </div>
         </div>
 
+
         <div class="form-group">
+            <img src="${student.img}">
             <label for="img">头像</label>
             <input type="file" name="img" id="img">
         </div>

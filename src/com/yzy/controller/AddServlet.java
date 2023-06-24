@@ -59,7 +59,7 @@ public class AddServlet extends HttpServlet {
         studentDao.insert(student);
 
 
-        req.getRequestDispatcher("/TurnToMain").forward(req, resp);
+        resp.sendRedirect("/main.jsp");
 
     }
 }
