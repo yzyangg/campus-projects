@@ -35,6 +35,6 @@ public class SearchByIDServlet extends HttpServlet {
         List<Student> students = studentDao.selectByID(param);
 
         req.setAttribute("students", students);
-        req.getRequestDispatcher("/main.jsp").forward(req, resp);
+        req.getRequestDispatcher("/search.jsp").forward(req, resp);
     }
 }

@@ -8,14 +8,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Add</title>
 </head>
 <style>
     body {
         font-family: Arial, sans-serif;
         margin: 0;
         padding: 0;
-        /*background-color: #f2f2f2;*/
+        background-image: linear-gradient(135deg, #2AFADF 10%, #4C83FF 100%);
     }
 
     .container {
@@ -37,14 +37,21 @@
 
     label {
         font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
     }
 
     input[type="text"],
-    input[type="password"] {
+    input[type="password"],
+    input[type="file"] {
         width: 100%;
-        padding: 5px;
+        padding: 8px;
         border-radius: 3px;
         border: 1px solid #ccc;
+    }
+
+    input[type="radio"] {
+        margin-right: 5px;
     }
 
     input[type="submit"] {
@@ -52,7 +59,7 @@
         width: 100%;
         padding: 10px;
         border: none;
-        background-color: #4caf50;
+        background-image: linear-gradient(135deg, #2AFADF 10%, #4C83FF 100%);
         color: #fff;
         font-weight: bold;
         cursor: pointer;
@@ -60,40 +67,53 @@
     }
 
     input[type="submit"]:hover {
-        background-color: #45a049;
+        background-image: linear-gradient(135deg, #2AFADF 10%, #4C83FF 100%);
+    }
+
+    .form-group div {
+        display: flex;
+        align-items: center;
+    }
+
+    input[type="radio"] {
+        margin-right: 5px;
+        margin-bottom: 0;
     }
 </style>
 <body>
 <div class="container">
 
     <form action="/addServlet" method="POST" enctype="multipart/form-data">
+        <h2>Add</h2>
+
         <div class="form-group">
-            <label>学号</label>
+            <label for="id">学号</label>
             <input type="text" value="${student.id}" name="id" id="id">
         </div>
 
         <div class="form-group">
-            <label>姓名</label>
+            <label for="username">姓名</label>
             <input type="text" value="${student.username}" name="username" id="username">
-
         </div>
 
         <div class="form-group">
             <label>性别</label>
-            <input type="radio" name="gender" value="男" id="man"> 男
-            <input type="radio" name="gender" value="女" id="woman"> 女
+            <div>
+                <label for="man"><input type="radio" name="gender" value="男" id="man"> <label
+                        for="man">男</label></label>
 
+                <label for="woman"><input type="radio" name="gender" value="女" id="woman"> <label
+                        for="woman">女</label></label>
+            </div>
         </div>
 
         <div class="form-group">
             <label for="img">头像</label>
             <input type="file" name="img" id="img">
         </div>
+
         <input type="submit" value="提交">
     </form>
 </div>
-<script>
-
-</script>
 </body>
 </html>

@@ -19,7 +19,6 @@ import java.io.IOException;
  * @date 2023/6/21 16:32
  */
 @WebServlet(value = "/TurnToEdit")
-@Logger
 public class TurnToEdit extends HttpServlet {
     StudentDao studentDao = new StudentDaoImpl();
 

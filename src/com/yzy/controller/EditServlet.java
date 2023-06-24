@@ -54,7 +54,7 @@ public class EditServlet extends HttpServlet {
         //TODO 无法实现上传后立刻浏览图片，需要重启
         imgUrl = "E:\\projects\\webdemo2\\web\\photos\\" + username + suffix;
         if (part != null) {
-            part.write(targetUrl);
+//            part.write(targetUrl);
             part.write(imgUrl);
         }
 
@@ -68,6 +68,6 @@ public class EditServlet extends HttpServlet {
 
         studentDao.update(student);
 
-        req.getRequestDispatcher("/TurnToMain").forward(req, resp);
+        resp.sendRedirect("/main.jsp");
     }
 }
